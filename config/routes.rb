@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Posting resource:
+  # CREATE
+  get "/postings/new", :controller => "postings", :action => "new"
+  post "/create_posting", :controller => "postings", :action => "create"
+
+  # READ
+  get "/postings", :controller => "postings", :action => "index"
+  get "/postings/:id", :controller => "postings", :action => "show"
+
+  # UPDATE
+  get "/postings/:id/edit", :controller => "postings", :action => "edit"
+  post "/update_posting/:id", :controller => "postings", :action => "update"
+
+  # DELETE
+  get "/delete_posting/:id", :controller => "postings", :action => "destroy"
+  #------------------------------
+
   # Routes for the Commitment resource:
   # CREATE
   get "/commitments/new", :controller => "commitments", :action => "new"

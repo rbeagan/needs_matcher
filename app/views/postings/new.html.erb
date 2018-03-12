@@ -1,0 +1,82 @@
+<!-- Validation failure messages -->
+<% if @posting.errors.any? %>
+  <% @posting.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Posting</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_posting" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <textarea id="description" name="description" placeholder="Description" class="form-control" rows="3"><%= @posting.description %></textarea>
+      </div>
+
+      <!-- Label and input for volunteers_needed -->
+      <div class="form-group">
+        <label for="volunteers_needed" class="control-label">
+          Volunteers needed
+        </label>
+
+        <input type="text" id="volunteers_needed" name="volunteers_needed" placeholder="Volunteers needed" class="form-control" value="<%= @posting.volunteers_needed %>">
+      </div>
+
+      <!-- Label and input for start_date -->
+      <div class="form-group">
+        <label for="start_date" class="control-label">
+          Start date
+        </label>
+
+        <input type="text" id="start_date" name="start_date" placeholder="Start date" class="form-control" value="<%= @posting.start_date %>">
+      </div>
+
+      <!-- Label and input for end_date -->
+      <div class="form-group">
+        <label for="end_date" class="control-label">
+          End date
+        </label>
+
+        <input type="text" id="end_date" name="end_date" placeholder="End date" class="form-control" value="<%= @posting.end_date %>">
+      </div>
+
+      <!-- Label and input for actions -->
+      <div class="form-group">
+        <label for="actions" class="control-label">
+          Actions
+        </label>
+
+        <input type="text" id="actions" name="actions" placeholder="Actions" class="form-control" value="<%= @posting.actions %>">
+      </div>
+
+      <!-- Label and input for poster_id -->
+      <div class="form-group">
+        <label for="poster_id" class="control-label">
+          Poster
+        </label>
+
+        <input type="text" id="poster_id" name="poster_id" placeholder="Poster" class="form-control" value="<%= @posting.poster_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Posting
+      </button>
+      or
+      <a href="/postings">Cancel</a>
+    </form>
+  </div>
+</div>
