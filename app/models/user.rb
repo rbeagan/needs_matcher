@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :postings,
+             :foreign_key => "poster_id",
+             :dependent => :destroy
+
   has_many   :commitments,
              :dependent => :nullify
 
