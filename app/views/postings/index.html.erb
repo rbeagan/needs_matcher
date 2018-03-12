@@ -25,7 +25,13 @@
         <td><%= posting.start_date %></td>
         <td><%= posting.end_date %></td>
         <td><%= posting.actions %></td>
-        <td><%= posting.poster.email %></td>
+        <td>
+          <% if posting.poster.present? %>
+            <a href="/users/<%= posting.poster.id %>">
+              <%= posting.poster.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/postings/<%= posting.id %>" class="btn btn-primary">Show</a>
           

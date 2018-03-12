@@ -21,7 +21,13 @@
       <dd><%= @posting.actions %></dd>
 
       <dt>Poster</dt>
-      <dd><%= @posting.poster_id %></dd>
+      <dd>
+        <% if @posting.poster.present? %>
+          <a href="/users/<%= @posting.poster_id %>">
+            <%= @posting.poster.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

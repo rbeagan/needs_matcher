@@ -16,8 +16,20 @@
 
       <% @tagging_joins.each do |tagging_join| %>
       <tr>
-        <td><%= tagging_join.tag.name %></td>
-        <td><%= tagging_join.posting.description %></td>
+        <td>
+          <% if tagging_join.tag.present? %>
+            <a href="/tags/<%= tagging_join.tag.id %>">
+              <%= tagging_join.tag.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if tagging_join.posting.present? %>
+            <a href="/postings/<%= tagging_join.posting.id %>">
+              <%= tagging_join.posting.description %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/tagging_joins/<%= tagging_join.id %>" class="btn btn-primary">Show</a>
           <a href="/tagging_joins/<%= tagging_join.id %>/edit" class="btn btn-warning">Edit</a>

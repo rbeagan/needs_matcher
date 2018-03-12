@@ -16,8 +16,20 @@
 
       <% @commitments.each do |commitment| %>
       <tr>
-        <td><%= commitment.user.email %></td>
-        <td><%= commitment.posting.description %></td>
+        <td>
+          <% if commitment.user.present? %>
+            <a href="/users/<%= commitment.user.id %>">
+              <%= commitment.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if commitment.posting.present? %>
+            <a href="/postings/<%= commitment.posting.id %>">
+              <%= commitment.posting.description %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/commitments/<%= commitment.id %>" class="btn btn-primary">Show</a>
           <a href="/commitments/<%= commitment.id %>/edit" class="btn btn-warning">Edit</a>
