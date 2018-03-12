@@ -16,7 +16,7 @@
 
       <% @tagging_joins.each do |tagging_join| %>
       <tr>
-        <td><%= tagging_join.tag_id %></td>
+        <td><%= tagging_join.tag.name %></td>
         <td><%= tagging_join.posting_id %></td>
         <td>
           <a href="/tagging_joins/<%= tagging_join.id %>" class="btn btn-primary">Show</a>
