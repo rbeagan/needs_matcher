@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "commitments#index"
   # Routes for the Tagging_join resource:
   # CREATE
   get "/tagging_joins/new", :controller => "tagging_joins", :action => "new"
