@@ -29,12 +29,14 @@
       <a href="/postings" class="btn btn-primary">
         Back
       </a>
-      <a href="/postings/<%= @posting.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_posting/<%= @posting.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if current_user == @posting.poster %>
+        <a href="/postings/<%= @posting.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_posting/<%= @posting.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
     </div>
   </div>
 </div>

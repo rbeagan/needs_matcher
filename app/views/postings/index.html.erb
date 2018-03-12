@@ -28,8 +28,11 @@
         <td><%= posting.poster.email %></td>
         <td>
           <a href="/postings/<%= posting.id %>" class="btn btn-primary">Show</a>
-          <a href="/postings/<%= posting.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_posting/<%= posting.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == posting.poster %>
+            <a href="/postings/<%= posting.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_posting/<%= posting.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>

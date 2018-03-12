@@ -1,4 +1,14 @@
 class PostingsController < ApplicationController
+  before_action :current_user_must_be_posting_poster, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_posting_poster
+    posting = Posting.find(params[:id])
+
+    unless current_user == posting.poster
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @postings = Posting.all
 
