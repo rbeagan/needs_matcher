@@ -1,6 +1,7 @@
 class CommitmentsController < ApplicationController
   def index
-    @commitments = Commitment.page(params[:page]).per(10)
+    @q = Commitment.ransack(params[:q])
+    @commitments = @q.result(:distinct => true).includes(:user, :posting).page(params[:page]).per(10)
 
     render("commitments/index.html.erb")
   end

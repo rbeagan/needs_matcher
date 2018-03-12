@@ -1,6 +1,7 @@
 class TaggingJoinsController < ApplicationController
   def index
-    @tagging_joins = TaggingJoin.page(params[:page]).per(10)
+    @q = TaggingJoin.ransack(params[:q])
+    @tagging_joins = @q.result(:distinct => true).includes(:posting, :tag).page(params[:page]).per(10)
 
     render("tagging_joins/index.html.erb")
   end

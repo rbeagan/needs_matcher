@@ -10,7 +10,8 @@ class PostingsController < ApplicationController
   end
 
   def index
-    @postings = Posting.page(params[:page]).per(10)
+    @q = Posting.ransack(params[:q])
+    @postings = @q.result(:distinct => true).includes(:poster, :commitments, :tagging_joins, :tags).page(params[:page]).per(10)
 
     render("postings/index.html.erb")
   end
