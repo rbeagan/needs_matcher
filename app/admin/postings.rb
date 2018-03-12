@@ -1,4 +1,6 @@
 ActiveAdmin.register Posting do
+
+ permit_params :description, :volunteers_needed, :start_date, :end_date, :actions, :poster_id
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
