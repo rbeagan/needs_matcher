@@ -23,3 +23,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Tag has many tagging_joins -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Tagging Joins
+      </li>
+
+      <% @tag.tagging_joins.each do |tagging_join| %>
+        <li class="list-group-item">
+          <a href="/tagging_joins/<%= tagging_join.id %>">
+            <%= tagging_join.tag_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/tagging_joins/<%= tagging_join.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/tagging_joins/<%= tagging_join.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_tagging_join/<%= tagging_join.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Tag has many postings -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Postings
+      </li>
+
+      <% @tag.postings.each do |posting| %>
+        <li class="list-group-item">
+          <a href="/postings/<%= posting.id %>">
+            <%= posting.description %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/postings/<%= posting.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/postings/<%= posting.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_posting/<%= posting.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
