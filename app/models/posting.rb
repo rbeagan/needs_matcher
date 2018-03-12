@@ -12,6 +12,10 @@ class Posting < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :tags,
+             :through => :tagging_joins,
+             :source => :tag
+
   # Validations
 
 end

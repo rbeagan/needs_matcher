@@ -6,6 +6,10 @@ class Tag < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :postings,
+             :through => :tagging_joins,
+             :source => :posting
+
   # Validations
 
 end
