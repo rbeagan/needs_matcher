@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Tagging_join resource:
+  # CREATE
+  get "/tagging_joins/new", :controller => "tagging_joins", :action => "new"
+  post "/create_tagging_join", :controller => "tagging_joins", :action => "create"
+
+  # READ
+  get "/tagging_joins", :controller => "tagging_joins", :action => "index"
+  get "/tagging_joins/:id", :controller => "tagging_joins", :action => "show"
+
+  # UPDATE
+  get "/tagging_joins/:id/edit", :controller => "tagging_joins", :action => "edit"
+  post "/update_tagging_join/:id", :controller => "tagging_joins", :action => "update"
+
+  # DELETE
+  get "/delete_tagging_join/:id", :controller => "tagging_joins", :action => "destroy"
+  #------------------------------
+
   # Routes for the Tag resource:
   # CREATE
   get "/tags/new", :controller => "tags", :action => "new"

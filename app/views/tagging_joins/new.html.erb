@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @tagging_join.errors.any? %>
+  <% @tagging_join.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Tagging Join</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_tagging_join" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for tag_id -->
+      <div class="form-group">
+        <label for="tag_id" class="control-label">
+          Tag
+        </label>
+
+        <input type="text" id="tag_id" name="tag_id" placeholder="Tag" class="form-control" value="<%= @tagging_join.tag_id %>">
+      </div>
+
+      <!-- Label and input for posting_id -->
+      <div class="form-group">
+        <label for="posting_id" class="control-label">
+          Posting
+        </label>
+
+        <input type="text" id="posting_id" name="posting_id" placeholder="Posting" class="form-control" value="<%= @tagging_join.posting_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Tagging Join
+      </button>
+      or
+      <a href="/tagging_joins">Cancel</a>
+    </form>
+  </div>
+</div>
