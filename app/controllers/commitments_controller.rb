@@ -1,6 +1,6 @@
 class CommitmentsController < ApplicationController
   def index
-    @commitments = Commitment.all
+    @commitments = Commitment.page(params[:page]).per(10)
 
     render("commitments/index.html.erb")
   end

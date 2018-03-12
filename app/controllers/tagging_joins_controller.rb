@@ -1,6 +1,6 @@
 class TaggingJoinsController < ApplicationController
   def index
-    @tagging_joins = TaggingJoin.all
+    @tagging_joins = TaggingJoin.page(params[:page]).per(10)
 
     render("tagging_joins/index.html.erb")
   end

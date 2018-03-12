@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@users.where.not(:home_address_latitude => nil)) do |user, marker|
       marker.lat user.home_address_latitude
       marker.lng user.home_address_longitude
