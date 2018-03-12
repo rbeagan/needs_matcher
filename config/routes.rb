@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Commitment resource:
+  # CREATE
+  get "/commitments/new", :controller => "commitments", :action => "new"
+  post "/create_commitment", :controller => "commitments", :action => "create"
+
+  # READ
+  get "/commitments", :controller => "commitments", :action => "index"
+  get "/commitments/:id", :controller => "commitments", :action => "show"
+
+  # UPDATE
+  get "/commitments/:id/edit", :controller => "commitments", :action => "edit"
+  post "/update_commitment/:id", :controller => "commitments", :action => "update"
+
+  # DELETE
+  get "/delete_commitment/:id", :controller => "commitments", :action => "destroy"
+  #------------------------------
+
   devise_for :users
   # Routes for the User resource:
   # READ
