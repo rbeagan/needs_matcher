@@ -33,7 +33,7 @@
           Posting
         </label>
 
-        <input type="text" id="posting_id" name="posting_id" placeholder="Posting" class="form-control" value="<%= @tagging_join.posting_id %>">
+        <%= select_tag(:posting_id, options_from_collection_for_select(Posting.all, :id, :description, @tagging_join.posting_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
