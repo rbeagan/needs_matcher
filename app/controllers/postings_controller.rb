@@ -16,6 +16,8 @@ class PostingsController < ApplicationController
   end
 
   def show
+    @tagging_join = TaggingJoin.new
+    @commitment = Commitment.new
     @posting = Posting.find(params[:id])
 
     render("postings/show.html.erb")

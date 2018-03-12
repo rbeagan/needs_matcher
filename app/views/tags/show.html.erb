@@ -51,6 +51,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_tagging_join" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for tag_id -->
+      <input type="hidden" name="tag_id" value="<%= @tag.id %>">
+
+      <!-- Label and input for posting_id -->
+      <div class="form-group">
+        <label for="posting_id" class="control-label">
+          Posting
+        </label>
+
+        <%= select_tag(:posting_id, options_from_collection_for_select(Posting.all, :id, :description), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Tagging Join
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
